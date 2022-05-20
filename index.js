@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import authRoute from "./routes/auth.js";
 
 const app = express();
 const port = 3000;
@@ -16,6 +17,8 @@ const dbConnect = async () => {
     throw error;
   }
 };
+
+app.use("/auth", authRoute);
 
 app.listen(port, () => {
   console.log(`Travelsite listening on port ${port}`);
