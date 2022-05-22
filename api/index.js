@@ -28,6 +28,17 @@ app.use("/hotels", hotelsRoute);
 app.use("/rooms", roomsRoute);
 app.use("/users", usersRoute);
 
+app.use((err, req, res, next) => {
+  const errStatus = err.status || 500;
+  const errMessage = err.message || "An error occurred.";
+  const errStack = err.stack || "No error stack available";
+  return res.status(errStatus).json({
+    status: errStatus,
+    message: errMessage,
+    stack: errStack,
+  });
+});
+
 app.listen(port, () => {
   console.log(`Travelsite listening on port ${port}`);
   dbConnect();
