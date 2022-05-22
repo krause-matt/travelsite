@@ -1,5 +1,4 @@
 import express from "express";
-import Hotel from "../models/Hotels.js";
 import {
   createHotel,
   getAllHotels,
