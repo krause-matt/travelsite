@@ -22,6 +22,7 @@ const dbConnect = async () => {
 };
 
 app.use(express.json());
+
 app.use("/auth", authRoute);
 app.use("/hotels", hotelsRoute);
 app.use("/rooms", roomsRoute);
