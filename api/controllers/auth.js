@@ -1,7 +1,7 @@
 import User from "../models/Users.js";
 import { errorHandler } from "../utils/errorHandler.js";
 import bcrypt from "bcrypt";
-import { json } from "express";
+import jwt from "jsonwebtoken";
 
 export const createUser = async (req, res, next) => {
   const saltRounds = 10;
@@ -27,15 +27,20 @@ export const userLogin = async (req, res, next) => {
   const hash = bcrypt.hashSync(req.body.password, salt);
 
   try {
-    const login = await User.findOne({ login: req.body.login });
-    if (login === null) return next(errorHandler(404, "User not found"));
+    const user = await User.findOne({ login: req.body.login });
+    if (user === null) return next(errorHandler(404, "User not found"));
     const passwordCheck = await bcrypt.compare(
       req.body.password,
-      login.password
+      user.password
     );
     if (passwordCheck === false)
       return next(errorHandler(400, "Incorrect Login or Password."));
-    res.status(200).json(login);
+
+    const token = jwt.sign(
+      { id: user._id, isAdmin: user.isAdmin },
+      process.env.JWT_SECRET_KEY
+    );
+    res.status(200).json(user);
   } catch (err) {
     next(err);
   }
