@@ -36,11 +36,16 @@ export const userLogin = async (req, res, next) => {
     if (passwordCheck === false)
       return next(errorHandler(400, "Incorrect Login or Password."));
 
+    const { password, isAdmin, ...otherInformation } = user._doc;
+
     const token = jwt.sign(
       { id: user._id, isAdmin: user.isAdmin },
       process.env.JWT_SECRET_KEY
     );
-    res.status(200).json(user);
+    res
+      .cookie("auth_token", token, { httpOnly: true })
+      .status(200)
+      .json({ ...otherInformation });
   } catch (err) {
     next(err);
   }
