@@ -7,11 +7,12 @@ import {
   deleteAllHotels,
   deleteHotel,
 } from "../controllers/hotels.js";
+import { checkAdmin } from "../utils/tokenAuth.js";
 
 const router = express.Router();
 
 // CREATE
-router.post("/", createHotel);
+router.post("/", checkAdmin, createHotel);
 
 // READ (All)
 router.get("/all", getAllHotels);
@@ -20,12 +21,12 @@ router.get("/all", getAllHotels);
 router.get("/:id", getHotel);
 
 // UPDATE
-router.put("/:id", editHotel);
+router.put("/:id", checkAdmin, editHotel);
 
 // DELETE (All)
-router.delete("/all", deleteAllHotels);
+router.delete("/all", checkAdmin, deleteAllHotels);
 
 // DELETE (Single)
-router.delete("/:id", deleteHotel);
+router.delete("/:id", checkAdmin, deleteHotel);
 
 export default router;
