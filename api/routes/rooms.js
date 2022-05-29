@@ -27,6 +27,6 @@ router.put("/:id", checkAdmin, editRoom);
 router.delete("/all", checkAdmin, deleteAllRooms);
 
 // DELETE (Single)
-router.delete("/:id", checkAdmin, deleteRoom);
+router.delete("/:id/:hotelId", checkAdmin, deleteRoom);
 
 export default router;
