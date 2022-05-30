@@ -28,6 +28,35 @@ export const getHotel = async (req, res, next) => {
   }
 };
 
+export const cityCount = async (req, res, next) => {
+  const cities = req.query.cities.split(",");
+  try {
+    const cityCountResult = await Promise.all(
+      cities.map((city) => {
+        return Hotel.countDocuments({ city: city });
+      })
+    );
+    res.status(200).json(cityCountResult);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const typeCount = async (req, res, next) => {
+  try {
+    const hotels = await Hotel.countDocuments({ type: "hotel" });
+    const condos = await Hotel.countDocuments({ type: "condo" });
+    const cabins = await Hotel.countDocuments({ type: "cabin" });
+    res.status(200).json([
+      { type: "hotel", count: hotels },
+      { type: "condo", count: condos },
+      { type: "cabin", count: cabins },
+    ]);
+  } catch (err) {
+    next(err);
+  }
+};
+
 export const editHotel = async (req, res, next) => {
   try {
     const updatedHotel = await Hotel.findByIdAndUpdate(

@@ -6,10 +6,16 @@ import {
   editHotel,
   deleteAllHotels,
   deleteHotel,
+  cityCount,
+  typeCount,
 } from "../controllers/hotels.js";
 import { checkAdmin } from "../utils/tokenAuth.js";
 
 const router = express.Router();
+
+// READ (Unique DB Stats)
+router.get("/cityCount", cityCount);
+router.get("/typeCount", typeCount);
 
 // CREATE
 router.post("/", checkAdmin, createHotel);
