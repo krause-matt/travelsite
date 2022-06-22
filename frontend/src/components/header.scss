@@ -1,0 +1,21 @@
+.header {
+  height: 40rem;
+  width: 100%;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+
+  .container {
+    height: 100%;
+    width: 100%;
+    max-width: 120rem;
+    display: flex;
+
+    .list {
+
+      .list-item {
+        font-size: 3rem;
+      }
+    }
+  }
+}
