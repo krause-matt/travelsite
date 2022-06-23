@@ -1,7 +1,7 @@
 .header {
   height: 40rem;
   width: 100%;
-  background-color: red;
+  background-color: darkred;
   display: flex;
   justify-content: center;
 
@@ -10,11 +10,84 @@
     width: 100%;
     max-width: 120rem;
     display: flex;
+    flex-direction: column;
+    color: white;
+    position: relative;
 
     .list {
+      margin: 2rem 0 3rem 0;
+      display: flex;
+      gap: 6rem;
 
       .list-item {
-        font-size: 3rem;
+        font-size: 2.5rem;
+        height: 5rem;
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        padding: 0 1rem;
+
+        &.active {
+          border: 0.2rem solid white;
+          border-radius: 0.5rem;
+        }
+      }
+    }
+
+    .title {
+      font-size: 6rem;
+      margin-top: 2rem;
+    }
+
+    .site-description {
+      font-size: 2.5rem;
+    }
+
+    .header-button {
+      margin: 3rem 0;
+      width: 12rem;
+      height: 5rem;
+      cursor: pointer;
+      border: none;
+      background-color: red;
+      color: darkred;
+      font-weight: 500;
+      font-size: 2rem;
+    }
+
+    .search {
+      height: 6rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background-color: white;
+      color: black;
+      border: 0.3rem solid red;
+      font-size: 2rem;
+      position: absolute;
+      bottom: -3rem;
+
+      .search-item {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        input {
+          font-size: 2rem;
+        }
+      }
+
+      .search-button {
+        cursor: pointer;
+        border: none;
+        background-color: red;
+        color: darkred;
+        font-weight: 500;
+        font-size: 2rem;
+        height: 80%;
+        width: 8rem;
       }
     }
   }
