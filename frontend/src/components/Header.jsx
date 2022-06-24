@@ -10,8 +10,23 @@ import {
   faPlaneDeparture,
   faTaxi,
 } from "@fortawesome/free-solid-svg-icons";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+import { DateRange } from "react-date-range";
+import { addDays, format } from "date-fns";
+import { useState } from "react";
 
 export const Header = () => {
+  const [date, setDate] = useState([
+    {
+      startDate: new Date(),
+      endDate: addDays(new Date(), 7),
+      key: "selection",
+    },
+  ]);
+
+  const [calendarShow, setCalendarShow] = useState(false);
+
   return (
     <div className="header">
       <div className="container">
@@ -42,15 +57,33 @@ export const Header = () => {
         <button className="header-button">Sign In</button>
         <div className="search">
           <div className="search-item">
-            <FontAwesomeIcon icon={faHotel} />
-            <input type="text" placeholder="Destination" />
+            <FontAwesomeIcon icon={faHotel} className="search-icon" />
+            <input type="text" placeholder="Destination"></input>
           </div>
           <div className="search-item">
-            <FontAwesomeIcon icon={faCalendarAlt} />
-            <span>Date range</span>
+            <FontAwesomeIcon icon={faCalendarAlt} className="search-icon" />
+            <span
+              onClick={() => {
+                setCalendarShow(!calendarShow);
+              }}
+            >
+              {format(date[0].startDate, "MM/dd/yy")} to{" "}
+              {format(date[0].endDate, "MM/dd/yy")}
+            </span>
+            {calendarShow && (
+              <DateRange
+                className="calendar"
+                onChange={(item) => setDate([item.selection])}
+                showSelectionPreview={true}
+                moveRangeOnFirstSelection={false}
+                months={2}
+                ranges={date}
+                direction="horizontal"
+              />
+            )}
           </div>
           <div className="search-item">
-            <FontAwesomeIcon icon={faPerson} />
+            <FontAwesomeIcon icon={faPerson} className="search-icon" />
             <span>Adults + children</span>
           </div>
           <button className="search-button">Search</button>

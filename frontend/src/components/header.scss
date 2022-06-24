@@ -58,6 +58,7 @@
     .search {
       height: 6rem;
       width: 100%;
+      max-width: 120rem;
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -76,6 +77,20 @@
 
         input {
           font-size: 2rem;
+          border: none;
+          outline: none;
+        }
+
+        span {
+          cursor: pointer;
+        }
+
+
+
+        .calendar {
+          position: absolute;
+          top: 6rem;
+          left: 20%;
         }
       }
 
