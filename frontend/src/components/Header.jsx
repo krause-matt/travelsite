@@ -26,6 +26,17 @@ export const Header = () => {
   ]);
 
   const [calendarShow, setCalendarShow] = useState(false);
+  const [optionsShow, setOptionsShow] = useState(false);
+
+  const [options, setOptions] = useState({
+    adults: 0,
+    children: 0,
+    rooms: 0,
+  });
+
+  const optionIncrease = (option) => {
+    options[option] += 1;
+  };
 
   return (
     <div className="header">
@@ -84,7 +95,46 @@ export const Header = () => {
           </div>
           <div className="search-item">
             <FontAwesomeIcon icon={faPerson} className="search-icon" />
-            <span>Adults + children</span>
+            <span
+              onClick={() => {
+                setOptionsShow(!optionsShow);
+              }}
+            >{`${options.adults} Adults | ${options.children} Children | ${options.rooms} Room`}</span>
+            {optionsShow && (
+              <div className="options">
+                <div className="option-item">
+                  <span className="option-text">Adults</span>
+                  <div className="option-select">
+                    <button className="option-button">-</button>
+                    <span className="option-display">0</span>
+                    <button
+                      className="option-button"
+                      onClick={() => {
+                        optionIncrease("adults");
+                      }}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div className="option-item">
+                  <span className="option-text">Children</span>
+                  <div className="option-select">
+                    <button className="option-button">-</button>
+                    <span className="option-display">0</span>
+                    <button className="option-button">+</button>
+                  </div>
+                </div>
+                <div className="option-item">
+                  <span className="option-text">Rooms</span>
+                  <div className="option-select">
+                    <button className="option-button">-</button>
+                    <span className="option-display">0</span>
+                    <button className="option-button">+</button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
           <button className="search-button">Search</button>
         </div>
