@@ -7,8 +7,9 @@
   gap: 2rem;
 
   .property-item {
-    height: 30rem;
+    height: 20rem;
     flex: 1;
+    cursor: pointer;
 
     .property-image {
       width: 100%;
@@ -18,6 +19,7 @@
     }
 
     .property-description {
+      margin-top: 2rem;
       display: flex;
       flex-direction: column;
 

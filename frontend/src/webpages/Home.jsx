@@ -4,6 +4,7 @@ import { NavBar } from "../components/NavBar";
 import { Header } from "../components/Header";
 import { Features } from "../components/Features";
 import { Properties } from "../components/Properties";
+import { Rentals } from "../components/Rentals";
 
 export const Home = () => {
   return (
@@ -15,6 +16,8 @@ export const Home = () => {
         <Features />
         <h1 className="title">Choose by property</h1>
         <Properties />
+        <h1 className="title">Great rental choices</h1>
+        <Rentals />
       </div>
     </>
   );

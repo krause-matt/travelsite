@@ -1,0 +1,54 @@
+.rentals {
+  width: 100%;
+  max-width: 120rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  .rental-item {
+    height: 20rem;
+    flex: 1;
+    cursor: pointer;
+
+    .rental-image {
+      width: 100%;
+      height: 20rem;
+      object-fit: cover;
+      
+    }
+
+    .rental-description {
+      display: flex;
+      flex-direction: column;
+      margin-top: 2rem;
+      gap: 0.5rem;
+
+      .rental-title {
+        font-size: 1.7rem;
+        font-weight: bold;
+      }
+
+      .rental-city, .rental-price {
+        font-size: 1.2rem;
+      }
+
+      
+    }
+
+    .rental-rating {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.2rem;
+
+      .rental-score {
+        padding: 0.3rem;
+        border: none;
+        background-color: darkred;
+        color: white;
+        font-weight: bold;
+      }
+    }
+  }
+}
