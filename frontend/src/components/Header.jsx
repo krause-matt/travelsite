@@ -34,8 +34,16 @@ export const Header = () => {
     rooms: 0,
   });
 
-  const optionIncrease = (option) => {
-    options[option] += 1;
+  const optionButton = (option, valueChange) => {
+    setOptions((prevState) => ({
+      ...prevState,
+      [option]:
+        valueChange === "increase"
+          ? options[option] + 1
+          : options[option] > 0
+          ? options[option] - 1
+          : 0,
+    }));
   };
 
   return (
@@ -96,22 +104,23 @@ export const Header = () => {
           <div className="search-item">
             <FontAwesomeIcon icon={faPerson} className="search-icon" />
             <span
-              onClick={() => {
-                setOptionsShow(!optionsShow);
-              }}
+              onClick={() => setOptionsShow(!optionsShow)}
             >{`${options.adults} Adults | ${options.children} Children | ${options.rooms} Room`}</span>
             {optionsShow && (
               <div className="options">
                 <div className="option-item">
                   <span className="option-text">Adults</span>
                   <div className="option-select">
-                    <button className="option-button">-</button>
-                    <span className="option-display">0</span>
                     <button
                       className="option-button"
-                      onClick={() => {
-                        optionIncrease("adults");
-                      }}
+                      onClick={() => optionButton("adults", "decrease")}
+                    >
+                      -
+                    </button>
+                    <span className="option-display">{options.adults}</span>
+                    <button
+                      className="option-button"
+                      onClick={() => optionButton("adults", "increase")}
                     >
                       +
                     </button>
@@ -120,17 +129,37 @@ export const Header = () => {
                 <div className="option-item">
                   <span className="option-text">Children</span>
                   <div className="option-select">
-                    <button className="option-button">-</button>
-                    <span className="option-display">0</span>
-                    <button className="option-button">+</button>
+                    <button
+                      className="option-button"
+                      onClick={() => optionButton("children", "decrease")}
+                    >
+                      -
+                    </button>
+                    <span className="option-display">{options.children}</span>
+                    <button
+                      className="option-button"
+                      onClick={() => optionButton("children", "increase")}
+                    >
+                      +
+                    </button>
                   </div>
                 </div>
                 <div className="option-item">
                   <span className="option-text">Rooms</span>
                   <div className="option-select">
-                    <button className="option-button">-</button>
-                    <span className="option-display">0</span>
-                    <button className="option-button">+</button>
+                    <button
+                      className="option-button"
+                      onClick={() => optionButton("rooms", "decrease")}
+                    >
+                      -
+                    </button>
+                    <span className="option-display">{options.rooms}</span>
+                    <button
+                      className="option-button"
+                      onClick={() => optionButton("rooms", "increase")}
+                    >
+                      +
+                    </button>
                   </div>
                 </div>
               </div>

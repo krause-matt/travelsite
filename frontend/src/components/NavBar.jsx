@@ -5,7 +5,7 @@ export const NavBar = () => {
   return (
     <div className="navbar">
       <div className="container">
-        <div className="sitename">Travelsite</div>
+        <div className="sitename">Travelsite.com</div>
         <div className="buttons">
           <button>Register</button>
           <button>Log In</button>
