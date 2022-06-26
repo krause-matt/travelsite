@@ -3,16 +3,19 @@
   max-width: 120rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 10rem;
 
   .feature-item {
-    width: 100%;
     position: relative;
+    height: 30rem;
 
     .feature-image {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       overflow: hidden;
+      border-radius: 2rem;
     }
 
     .feature-description {
