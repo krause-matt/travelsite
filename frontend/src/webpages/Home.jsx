@@ -5,6 +5,7 @@ import { Header } from "../components/Header";
 import { Features } from "../components/Features";
 import { Properties } from "../components/Properties";
 import { Rentals } from "../components/Rentals";
+import { Subscribe } from "../components/Subscribe";
 
 export const Home = () => {
   return (
@@ -18,6 +19,7 @@ export const Home = () => {
         <Properties />
         <h1 className="title">Great rental choices</h1>
         <Rentals />
+        <Subscribe />
       </div>
     </>
   );
