@@ -1,0 +1,31 @@
+.hotel-list {
+  width: 100%;
+  margin-top: 10rem;
+
+  .list-container {
+    max-width: 120rem;
+    display: flex;
+    justify-content: center;
+
+    .list-search {
+      flex: 1;
+      background-color: red;
+      width: 100%;
+      padding: 0.5rem;
+
+      .search-title {
+
+      }
+
+      .search-group {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    .list-results {
+      flex: 3;
+    }
+  }
+}
