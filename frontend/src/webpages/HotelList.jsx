@@ -5,6 +5,7 @@ import { NavBar } from "../components/NavBar";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import format from "date-fns/format";
+import { DateRange } from "react-date-range";
 
 export const HotelList = () => {
   let location = useLocation();
@@ -12,6 +13,7 @@ export const HotelList = () => {
   const [date, setDate] = useState(location.state.date);
   const [destination, setDestination] = useState(location.state.destination);
   const [options, setOptions] = useState(location.state.options);
+  const [calendarShow, setCalendarShow] = useState(false);
 
   return (
     <>
@@ -22,16 +24,30 @@ export const HotelList = () => {
           <div className="list-search">
             <h1 className="search-title">Search</h1>
             <div className="search-group">
-              <span className="search-item">Destination</span>
+              <div className="search-item">Destination</div>
               <input
                 type="text"
                 placeholder={destination}
                 className="search-result"
               ></input>
-              <span className="search-item">Dates</span>
-              <span className="search-result">
+              <div className="search-item">Dates</div>
+              <span
+                className="search-result"
+                onClick={() => setCalendarShow(!calendarShow)}
+              >
                 {format(date[0].startDate, "MM/dd/yy")} to{" "}
                 {format(date[0].endDate, "MM/dd/yy")}
+                {calendarShow && (
+                  <DateRange
+                    className="calendar"
+                    onChange={(item) => setDate([item.selection])}
+                    showSelectionPreview={true}
+                    moveRangeOnFirstSelection={false}
+                    months={2}
+                    ranges={date}
+                    direction="horizontal"
+                  />
+                )}
               </span>
             </div>
           </div>
