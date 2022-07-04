@@ -15,6 +15,8 @@ export const HotelList = () => {
   const [options, setOptions] = useState(location.state.options);
   const [calendarShow, setCalendarShow] = useState(false);
 
+  console.log("options", options);
+
   return (
     <>
       <NavBar />
@@ -45,10 +47,46 @@ export const HotelList = () => {
                     moveRangeOnFirstSelection={false}
                     months={2}
                     ranges={date}
+                    minDate={new Date()}
                     direction="horizontal"
                   />
                 )}
               </span>
+              <div className="search-item">Options</div>
+              <div className="num-group">
+                <span>
+                  Min price <small>per night</small>
+                </span>
+                <input type="number" min={0}></input>
+              </div>
+              <div className="num-group">
+                <span>Max price</span>
+                <input type="number" min={0}></input>
+              </div>
+              <div className="num-group">
+                <span>Adults</span>
+                <input
+                  type="number"
+                  min={1}
+                  placeholder={options.adults}
+                ></input>
+              </div>
+              <div className="num-group">
+                <span>Children</span>
+                <input
+                  type="number"
+                  min={0}
+                  placeholder={options.children}
+                ></input>
+              </div>
+              <div className="num-group">
+                <span>Rooms</span>
+                <input
+                  type="number"
+                  min={1}
+                  placeholder={options.rooms}
+                ></input>
+              </div>
             </div>
           </div>
           <div className="list-results"></div>

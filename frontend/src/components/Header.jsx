@@ -32,9 +32,9 @@ export const Header = ({ display }) => {
   const [optionsShow, setOptionsShow] = useState(false);
 
   const [options, setOptions] = useState({
-    adults: 0,
+    adults: 1,
     children: 0,
-    rooms: 0,
+    rooms: 1,
   });
 
   const optionButton = (option, valueChange) => {
@@ -114,6 +114,7 @@ export const Header = ({ display }) => {
                     moveRangeOnFirstSelection={false}
                     months={2}
                     ranges={date}
+                    minDate={new Date()}
                     direction="horizontal"
                   />
                 )}
@@ -131,6 +132,7 @@ export const Header = ({ display }) => {
                         <button
                           className="option-button"
                           onClick={() => optionButton("adults", "decrease")}
+                          disabled={options.adults <= 1}
                         >
                           -
                         </button>
@@ -169,6 +171,7 @@ export const Header = ({ display }) => {
                         <button
                           className="option-button"
                           onClick={() => optionButton("rooms", "decrease")}
+                          disabled={options.rooms <= 1}
                         >
                           -
                         </button>
