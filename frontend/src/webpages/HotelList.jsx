@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import format from "date-fns/format";
 import { DateRange } from "react-date-range";
+import { SearchResult } from "../components/SearchResult";
 
 export const HotelList = () => {
   let location = useLocation();
@@ -87,9 +88,12 @@ export const HotelList = () => {
                   placeholder={options.rooms}
                 ></input>
               </div>
+              <button className="search-button">Search</button>
             </div>
           </div>
-          <div className="list-results"></div>
+          <div className="list-results">
+            <SearchResult />
+          </div>
         </div>
       </div>
     </>

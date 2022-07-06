@@ -31,6 +31,7 @@
 
         .search-item {
           font-size: 1.25rem;
+          margin-bottom: -1.5rem;
         }
 
         > input {
@@ -52,6 +53,16 @@
           position: relative;
         }
 
+        button {
+          height: 4rem;
+          border: none;
+          background-color: rgb(194, 0, 0);
+          font-size: 2rem;
+          color: white;
+          border: 0.1rem solid darkred;
+          border-radius: 0.5rem;
+        }
+
         .calendar {
           position: absolute;
           top: 4rem;
@@ -65,7 +76,7 @@
         }
 
         .num-group > span {
-          font-size: 1.5rem;
+          font-size: 1.75rem;
           font-weight: bold;
         }
 
@@ -85,3 +96,4 @@
     }
   }
 }
+
