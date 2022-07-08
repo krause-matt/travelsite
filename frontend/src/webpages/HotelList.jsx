@@ -93,6 +93,10 @@ export const HotelList = () => {
           </div>
           <div className="list-results">
             <SearchResult />
+            <SearchResult />
+            <SearchResult />
+            <SearchResult />
+            <SearchResult />
           </div>
         </div>
       </div>
