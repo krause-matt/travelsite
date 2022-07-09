@@ -14,9 +14,13 @@
     .list-search {
       flex: 1;
       background-color:  rgb(249, 173, 160);
+      height: max-content;
+      position: sticky;
       width: 100%;
+      top: 2rem;
       padding: 1.5rem;
       border-radius: 0.5rem;
+
 
       .search-title {
         margin-bottom: 1rem;
