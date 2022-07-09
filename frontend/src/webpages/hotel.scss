@@ -1,0 +1,119 @@
+.hotel-main {
+  width: 100%;
+  max-width: 120rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+
+  .hotel-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+
+    > #top-btn {
+      width: 30rem;
+    }
+
+    .hh-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+
+      .hh-title {
+        font-size: 3rem;
+      }
+
+      .hh-location {
+        font-size: 1.4rem;
+
+        > * {
+          margin-right: 1rem;
+        }
+      }
+
+      .hh-highlight {
+        font-size: 1.75rem;
+        color: red;
+      }
+
+      .hh-offer {
+        font-size: 1.75rem;
+        color: darkred;
+      }
+    }
+  }
+
+  .hotel-gallery {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    > * {
+      height: 35rem;
+      width: 35rem;
+      margin: 0.25rem 0;
+      object-fit: cover;
+    }
+  }
+
+  .hotel-details {
+    margin: 3rem 0;
+    display: flex;
+
+    .hd-container {
+      flex: 3;
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+      }
+      p {
+        font-size: 1.5rem;
+        margin-right: 4rem;
+      }
+    }
+
+    .hotel-stay {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 3rem;
+      background-color: rgba(249, 173, 160, 0.548);
+      padding: 2rem;
+
+      .hs-length {
+        font-size: 2.25rem;
+      }
+
+      > .hs-rating {
+        font-size: 1.65rem;
+      }
+
+      .hs-total {
+        > .hs-price, .hs-nights {
+          font-size: 3rem;
+        }
+      }      
+
+      .hs-price {
+        font-weight: 900;
+        margin-right: 0.5rem;
+      }
+
+    }
+  }
+}
+
+.book-btn {
+  height: 5rem;
+  background-color:  rgb(194, 0, 0);
+  border: 0.25rem solid darkred;
+  color: white;
+  font-weight: bold;
+  font-size: 1.75rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
