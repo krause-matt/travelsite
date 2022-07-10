@@ -1,6 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
+import {
+  faGlobe,
+  faAnglesLeft,
+  faAnglesRight,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from "react";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { NavBar } from "../components/NavBar";
@@ -29,10 +34,26 @@ const gallery = [
 ];
 
 export const Hotel = () => {
+  const [imgNum, setImgNum] = useState(0);
+  const [imgModal, setImgModal] = useState(false);
+
+  const galleryClick = (index) => {
+    setImgNum(index);
+    setImgModal(true);
+  };
+
   return (
     <>
       <NavBar />
       <Header display="partial" />
+      {imgModal && (
+        <div className="image-modal">
+          <FontAwesomeIcon icon={faAnglesLeft} className="modal-slider" />
+          <img src={gallery[imgNum].img}></img>
+          <FontAwesomeIcon icon={faAnglesRight} className="modal-slider" />
+          <FontAwesomeIcon icon={faXmark} className="modal-close" />
+        </div>
+      )}
       <div className="hotel-main">
         <div className="hotel-header">
           <div className="hh-info">
@@ -51,9 +72,11 @@ export const Hotel = () => {
           </button>
         </div>
         <div className="hotel-gallery">
-          {gallery.map((item) => {
-            return <img src={item.img} />;
-          })}
+          <div className="hg-wrapper">
+            {gallery.map((item, index) => {
+              return <img src={item.img} onClick={() => galleryClick(index)} />;
+            })}
+          </div>
         </div>
         <div className="hotel-details">
           <div className="hd-container">
