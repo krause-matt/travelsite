@@ -11,6 +11,7 @@ import { Header } from "../components/Header";
 import { NavBar } from "../components/NavBar";
 import { Subscribe } from "../components/Subscribe";
 import "./hotel.scss";
+import { setMinutes } from "date-fns";
 
 const gallery = [
   {
@@ -42,16 +43,36 @@ export const Hotel = () => {
     setImgModal(true);
   };
 
+  const modalSlider = (direction) => {
+    if (direction === "L") {
+      imgNum == 0 ? setImgNum(5) : setImgNum(imgNum - 1);
+    } else {
+      imgNum == 5 ? setImgNum(0) : setImgNum(imgNum + 1);
+    }
+  };
+
   return (
     <>
       <NavBar />
       <Header display="partial" />
       {imgModal && (
         <div className="image-modal">
-          <FontAwesomeIcon icon={faAnglesLeft} className="modal-slider" />
+          <FontAwesomeIcon
+            icon={faAnglesLeft}
+            className="modal-slider"
+            onClick={() => modalSlider("L")}
+          />
           <img src={gallery[imgNum].img}></img>
-          <FontAwesomeIcon icon={faAnglesRight} className="modal-slider" />
-          <FontAwesomeIcon icon={faXmark} className="modal-close" />
+          <FontAwesomeIcon
+            icon={faAnglesRight}
+            className="modal-slider"
+            onClick={() => modalSlider("R")}
+          />
+          <FontAwesomeIcon
+            icon={faXmark}
+            className="modal-close"
+            onClick={() => setImgModal(false)}
+          />
         </div>
       )}
       <div className="hotel-main">
