@@ -11,7 +11,6 @@ import { Header } from "../components/Header";
 import { NavBar } from "../components/NavBar";
 import { Subscribe } from "../components/Subscribe";
 import "./hotel.scss";
-import { setMinutes } from "date-fns";
 
 const gallery = [
   {

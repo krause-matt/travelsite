@@ -1,7 +1,14 @@
 import React from "react";
+import useFetch from "../hooks/useFetch";
 import "./features.scss";
 
 export const Features = () => {
+  const { data, pageLoad, error } = useFetch(
+    "http://localhost:3000/hotels/cityCount?cities=chicago,tampa,austin"
+  );
+
+  console.log(data);
+
   return (
     <div className="features">
       <div className="feature-item">
