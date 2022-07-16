@@ -1,7 +1,11 @@
 import React from "react";
 import "./properties.scss";
+import useFetch from "../hooks/useFetch";
 
 export const Properties = () => {
+  const data = useFetch("http://localhost:3000/hotels/typeCount");
+  console.log("typeCount", data);
+
   return (
     <div className="properties">
       <div className="property-item">
