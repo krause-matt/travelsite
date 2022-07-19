@@ -8,7 +8,7 @@ export const PropertyItem = (data) => {
 
   return (
     <div className="property-item">
-      <img className="property-image" src={data.image}></img>
+      <img className="property-image" key={data.index} src={data.image}></img>
       <div className="property-description">
         <span className="property-title">{`${formalTitle}s`}</span>
         <span className="property-count">

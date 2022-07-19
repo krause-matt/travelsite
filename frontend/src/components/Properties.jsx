@@ -25,6 +25,7 @@ export const Properties = () => {
             const imageUrl = propertyImages[index];
             return (
               <PropertyItem
+                index={index}
                 type={item.type}
                 count={item.count}
                 image={imageUrl}
